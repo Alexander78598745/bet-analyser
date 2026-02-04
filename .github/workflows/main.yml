@@ -1,0 +1,36 @@
+name: Actualizador Diario Futbol
+
+on:
+  schedule:
+    - cron: '0 5 * * *' # Se ejecuta a las 5:00 AM UTC
+  workflow_dispatch: # Permite ejecutar manual con botón
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Chequear código
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar librerías
+        run: pip install requests
+
+      - name: Ejecutar Bot
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: python bot.py
+
+      - name: Guardar cambios
+        run: |
+          git config --global user.name 'FutbolBot'
+          git config --global user.email 'bot@noreply.github.com'
+          git add equipos.json
+          git commit -m "Datos actualizados" || echo "Sin cambios"
+          git push
