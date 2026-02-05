@@ -3,54 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bet Analyser AI - Pro</title>
+    <title>Bet Analyser AI - Master</title>
     <style>
         :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #10b981; --secondary: #3b82f6; --danger: #ef4444; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; display: flex; justify-content: center; }
         .app { width: 100%; max-width: 650px; background: var(--card); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        h1 { text-align: center; color: var(--accent); margin-bottom: 20px; }
+        h1 { text-align: center; color: var(--accent); margin-bottom: 20px; font-size: 22px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        select, input { width: 100%; padding: 12px; margin: 5px 0 15px 0; background: #334155; border: 1px solid #475569; color: white; border-radius: 8px; box-sizing: border-box; }
-        button { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.2s; }
-        button:hover { background: #059669; transform: translateY(-2px); }
+        label { font-size: 13px; color: #cbd5e1; font-weight: bold; display: block; margin-bottom: 5px; }
+        select, input { width: 100%; padding: 12px; margin-bottom: 15px; background: #334155; border: 1px solid #475569; color: white; border-radius: 8px; box-sizing: border-box; font-size: 15px; }
         
-        .result-section { background: #0f172a; padding: 20px; margin-top: 25px; border-radius: 10px; display: none; border-left: 5px solid var(--accent); }
-        .bar-container { background: #334155; height: 20px; border-radius: 5px; margin: 8px 0; position: relative; overflow: hidden; }
-        .bar { height: 100%; background: var(--accent); width: 0%; transition: width 0.8s ease; }
-        .bar-text { position: absolute; right: 10px; top: 1px; font-size: 12px; font-weight: bold; }
-        .value-box { padding: 10px; border-radius: 5px; margin-top: 10px; font-weight: bold; text-align: center; font-size: 14px; }
+        button { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--accent), #059669); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 10px; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+        button:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
+        
+        .result-section { background: #0f172a; padding: 15px; margin-top: 20px; border-radius: 10px; display: none; border-left: 5px solid var(--accent); animation: fadeIn 0.5s; }
+        .bar-container { background: #334155; height: 24px; border-radius: 6px; margin: 8px 0; position: relative; overflow: hidden; }
+        .bar { height: 100%; background: var(--accent); width: 0%; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bar-text { position: absolute; right: 10px; top: 3px; font-size: 12px; font-weight: bold; text-shadow: 1px 1px 2px black; }
+        
+        .value-box { padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; line-height: 1.5; border: 1px solid transparent; }
+        .money { font-size: 18px; color: white; display: block; margin-top: 5px; }
+        
+        @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
     </style>
 </head>
 <body>
 
 <div class="app">
-    <h1>⚽ Bet Analyser AI v2</h1>
-    <p id="status" style="text-align:center; font-size:12px; color:#94a3b8;">Sincronizando con Alexander78598745...</p>
+    <h1>⚽ Bet Analyser AI <span style="font-size:12px; color:#94a3b8; vertical-align:middle;">v3.0</span></h1>
+    <p id="status" style="text-align:center; font-size:12px; color:#94a3b8;">Cargando sistema...</p>
 
-    <label>1. Seleccionar Liga</label>
+    <label>1. Selecciona Liga</label>
     <select id="leagueSelect" onchange="filterTeams()"></select>
 
     <div class="grid">
-        <div><label>Equipo Local</label><select id="homeTeam"></select></div>
-        <div><label>Equipo Visitante</label><select id="awayTeam"></select></div>
+        <div><label>Local (Home)</label><select id="homeTeam"></select></div>
+        <div><label>Visitante (Away)</label><select id="awayTeam"></select></div>
     </div>
 
-    <div class="grid">
-        <div><label>Cuota Local (1)</label><input type="number" id="odd1" step="0.01" placeholder="Ej: 2.10"></div>
-        <div><label>Cuota Más 2.5 Goles</label><input type="number" id="oddOver" step="0.01" placeholder="Ej: 1.95"></div>
+    <div style="background:#334155; padding:15px; border-radius:10px; margin-bottom:15px;">
+        <label style="color:#fff; margin-bottom:10px; border-bottom:1px solid #475569; padding-bottom:5px;">💰 Datos Financieros</label>
+        <div class="grid">
+            <div><label>Cuota Local (1)</label><input type="number" id="odd1" step="0.01" placeholder="Ej: 2.10"></div>
+            <div><label>Cuota Más 2.5</label><input type="number" id="oddOver" step="0.01" placeholder="Ej: 1.85"></div>
+        </div>
+        <div><label>Tu Presupuesto Total (€)</label><input type="number" id="bankroll" value="1000" style="margin-bottom:0; background:#1e293b; border-color:#10b981;"></div>
     </div>
 
-    <button onclick="calculate()">REALIZAR ANÁLISIS COMPLETO</button>
+    <button onclick="calculate()">ANALIZAR MERCADOS</button>
 
     <div id="results1" class="result-section">
-        <h3 id="matchTitle" style="text-align:center; margin-top:0;"></h3>
-        <p>Probabilidad de Ganador (1X2)</p>
+        <h3 id="matchTitle" style="text-align:center; margin:0 0 10px 0; color:white;"></h3>
+        <p style="font-size:13px; color:#cbd5e1; margin:0;">Probabilidad Victoria Local</p>
         <div class="bar-container"><div id="barL" class="bar"></div><span id="txtL" class="bar-text"></span></div>
         <div id="value1" class="value-box"></div>
     </div>
 
     <div id="resultsGoles" class="result-section" style="border-left-color: var(--secondary);">
-        <p>Probabilidad de Goles (Más de 2.5)</p>
+        <p style="font-size:13px; color:#cbd5e1; margin:0;">Probabilidad +2.5 Goles</p>
         <div class="bar-container"><div id="barOver" class="bar" style="background: var(--secondary);"></div><span id="txtOver" class="bar-text"></span></div>
         <div id="valueOver" class="value-box"></div>
     </div>
@@ -66,10 +76,11 @@
             db = await req.json();
             const leagues = [...new Set(Object.values(db).map(x => x.liga))].sort();
             const sel = document.getElementById('leagueSelect');
-            sel.innerHTML = '<option value="">-- Elige Liga --</option>';
+            sel.innerHTML = '<option value="">-- Seleccionar Competición --</option>';
             leagues.forEach(l => sel.add(new Option(l, l)));
-            document.getElementById('status').innerText = "✅ Base de Datos 2025/2026 Lista";
-        } catch(e) { document.getElementById('status').innerText = "❌ Error al cargar datos"; }
+            document.getElementById('status').innerText = "✅ Sistema Conectado";
+            document.getElementById('status').style.color = "#10b981";
+        } catch(e) { document.getElementById('status').innerText = "⚠️ Error de conexión"; }
     }
 
     function filterTeams() {
@@ -89,25 +100,24 @@
         const vName = document.getElementById('awayTeam').value;
         const odd1 = parseFloat(document.getElementById('odd1').value);
         const oddOver = parseFloat(document.getElementById('oddOver').value);
+        const bank = parseFloat(document.getElementById('bankroll').value);
 
-        if(!hName || !vName) return;
+        if(!hName || !vName) return alert("Selecciona los equipos primero");
 
-        // xG (Goles Esperados)
+        // Cálculo de xG (Ajuste de localía 10%)
         const xGH = (db[hName].ga * 1.10 + db[vName].gc) / 2;
         const xGV = (db[vName].ga / 1.10 + db[hName].gc) / 2;
 
-        let pL=0, pD=0, pV=0, pUnder25=0;
+        let pL=0, pUnder25=0;
 
-        for(let i=0; i<8; i++) {
-            for(let j=0; j<8; j++) {
+        // Simulación Poisson
+        for(let i=0; i<10; i++) {
+            for(let j=0; j<10; j++) {
                 let p = p_dist(i, xGH) * p_dist(j, xGV);
-                // Probabilidades 1X2
-                if(i>j) pL+=p; else if(i==j) pD+=p; else pV+=p;
-                // Probabilidad Under 2.5 (0-0, 1-0, 0-1, 1-1, 2-0, 0-2)
-                if((i+j) < 2.5) pUnder25 += p;
+                if(i>j) pL+=p; // Probabilidad Local
+                if((i+j) < 2.5) pUnder25 += p; // Probabilidad Under
             }
         }
-
         const pOver25 = 1 - pUnder25;
 
         // Mostrar Resultados
@@ -115,30 +125,48 @@
         document.getElementById('resultsGoles').style.display = 'block';
         document.getElementById('matchTitle').innerText = `${hName} vs ${vName}`;
 
-        // UI 1X2
-        updateUI('L', pL, odd1, 'value1', 'Victoria Local');
-        // UI Goles
-        updateUI('Over', pOver25, oddOver, 'valueOver', 'Más de 2.5 Goles');
+        updateUI('L', pL, odd1, 'value1', 'VICTORIA LOCAL', bank, '#10b981');
+        updateUI('Over', pOver25, oddOver, 'valueOver', 'MÁS DE 2.5 GOLES', bank, '#3b82f6');
     }
 
-    function updateUI(id, prob, odd, valueId, label) {
+    function updateUI(id, prob, odd, valueId, label, bank, color) {
         const pct = (prob * 100).toFixed(1);
-        document.getElementById('bar' + id).style.width = pct + '%';
+        const bar = document.getElementById('bar' + id);
+        bar.style.width = pct + '%';
+        bar.style.backgroundColor = color;
         document.getElementById('txt' + id).innerText = pct + '%';
 
         const vBox = document.getElementById(valueId);
+        
         if(odd > 0) {
             let edge = (prob * odd) - 1;
+            
             if(edge > 0) {
-                vBox.style.background = 'rgba(16, 185, 129, 0.2)';
-                vBox.style.color = '#10b981';
-                vBox.innerText = `VALOR DETECTADO EN ${label.toUpperCase()}: +${(edge*100).toFixed(1)}%`;
+                // KELLY CRITERION (Quarter Kelly para seguridad)
+                let b = odd - 1;
+                let q = 1 - prob;
+                let f = ((b * prob - q) / b) * 0.25; 
+                let money = Math.max(0, bank * f);
+
+                vBox.style.background = `rgba(${id==='L'?'16, 185, 129':'59, 130, 246'}, 0.15)`;
+                vBox.style.color = color;
+                vBox.style.borderColor = color;
+                vBox.innerHTML = `
+                    💎 <b>VALOR DETECTADO (${(edge*100).toFixed(1)}%)</b><br>
+                    Cuota real estimada: ${(1/prob).toFixed(2)}<br>
+                    <span class="money">Apuesta Recomendada: <b>€${money.toFixed(2)}</b></span>
+                `;
             } else {
                 vBox.style.background = 'rgba(239, 68, 68, 0.1)';
-                vBox.style.color = '#94a3b8';
-                vBox.innerText = `Sin valor para ${label}`;
+                vBox.style.color = '#ef4444';
+                vBox.style.borderColor = 'transparent';
+                vBox.innerHTML = `🚫 <b>SIN VALOR MATEMÁTICO</b><br>La casa paga poco (${odd}). Debería pagar más de ${(1/prob).toFixed(2)}.`;
             }
-        } else { vBox.innerText = ""; }
+        } else {
+            vBox.innerText = "Introduce una cuota para calcular valor (€)";
+            vBox.style.background = "transparent";
+            vBox.style.color = "#64748b";
+        }
     }
 
     window.onload = init;
