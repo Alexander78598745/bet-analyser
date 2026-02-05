@@ -1,61 +1,62 @@
 import requests
 import json
 import os
+import time
 
-# --- CONFIGURACIÓN ---
-API_KEY = os.getenv('FOOTBALL_API_KEY') 
-HEADERS = {'x-apisports-key': API_KEY}
+# --- CONFIGURACIÓN PARA FOOTBALL-DATA.ORG ---
+API_KEY = os.getenv('FOOTBALL_API_KEY')
+HEADERS = {'X-Auth-Token': API_KEY}
 
-# IDs: 140=LaLiga, 39=Premier, 135=Serie A, 78=Bundesliga, 61=Ligue 1
-LIGAS = [140, 39, 135, 78, 61] 
-
-# CAMBIO IMPORTANTE: Usamos 2024 porque el plan gratis bloquea la 2025
-TEMPORADA = 2024 
+# Ligas disponibles en el plan gratuito (Temporada Actual)
+# PD = España, PL = Inglaterra, SA = Italia, BL1 = Alemania, FL1 = Francia
+LIGAS = ['PD', 'PL', 'SA', 'BL1', 'FL1']
 
 def actualizar_datos():
     stats_finales = {}
-    print(f"⚽ Iniciando escaneo de temporada {TEMPORADA}...")
+    print("⚽ Conectando con la base de datos 2025/2026...")
 
-    for liga_id in LIGAS:
-        url = f"https://v3.football.api-sports.io/standings?league={liga_id}&season={TEMPORADA}"
+    for liga_code in LIGAS:
+        url = f"https://api.football-data.org/v4/competitions/{liga_code}/standings"
         
         try:
-            response = requests.get(url, headers=HEADERS).json()
+            response = requests.get(url, headers=HEADERS)
             
-            # Si hay error de plan, lo saltamos sin romper el programa
-            if response.get('errors'):
-                print(f"⚠️ Aviso en liga {liga_id}: {response.get('errors')}")
-                continue
-
-            if not response.get('response'):
-                print(f"⚠️ Sin datos para liga {liga_id}.")
-                continue
-
-            datos_liga = response['response'][0]['league']
-            nombre_liga = datos_liga['name']
-            tabla = datos_liga['standings'][0]
-
-            print(f"✅ Descargando: {nombre_liga}")
-
-            for equipo in tabla:
-                nombre = equipo['team']['name']
-                stats = equipo['all']
-                jugados = stats['played']
+            if response.status_code == 200:
+                data = response.json()
+                nombre_liga = data['competition']['name']
+                # Buscamos la tabla general
+                tabla = data['standings'][0]['table']
                 
-                if jugados > 0:
-                    stats_finales[nombre] = {
-                        "liga": nombre_liga,
-                        "ga": round(stats['goals']['for'] / jugados, 2),
-                        "gc": round(stats['goals']['against'] / jugados, 2)
-                    }
+                print(f"✅ Procesando: {nombre_liga}")
+
+                for equipo in tabla:
+                    # Limpiamos el nombre para que sea más fácil de leer
+                    nombre = equipo['team']['name'].replace("FC ", "").replace(" CD", "").strip()
                     
+                    jugados = equipo['playedGames']
+                    goles_favor = equipo['goalsFor']
+                    goles_contra = equipo['goalsAgainst']
+                    
+                    if jugados > 0:
+                        stats_finales[nombre] = {
+                            "liga": nombre_liga,
+                            "ga": round(goles_favor / jugados, 2),
+                            "gc": round(goles_contra / jugados, 2)
+                        }
+            else:
+                print(f"⚠️ Error {response.status_code} en liga {liga_code}")
+
+            # IMPORTANTE: Esperamos 10 segundos entre ligas 
+            # El plan gratuito solo permite 10 peticiones por minuto.
+            time.sleep(10)
+
         except Exception as e:
-            print(f"❌ Error en liga {liga_id}: {e}")
+            print(f"❌ Error en {liga_code}: {e}")
 
     # Guardamos el archivo JSON
     with open('equipos.json', 'w') as f:
         json.dump(stats_finales, f, indent=4)
-    print("💾 Base de datos 'equipos.json' guardada con éxito.")
+    print("💾 ¡Base de datos de la temporada actual guardada!")
 
 if __name__ == "__main__":
     actualizar_datos()
