@@ -30,8 +30,8 @@
 <body>
 
 <div class="app">
-    <h1>⚽ Bet Analyser AI <span style="font-size:12px; color:#94a3b8; vertical-align:middle;">v3.0</span></h1>
-    <p id="status" style="text-align:center; font-size:12px; color:#94a3b8;">Cargando sistema...</p>
+    <h1>⚽ Bet Analyser AI <span style="font-size:12px; color:#94a3b8; vertical-align:middle;">v3.1</span></h1>
+    <p id="status" style="text-align:center; font-size:12px; color:#94a3b8;">Conectando al servidor...</p>
 
     <label>1. Selecciona Liga</label>
     <select id="leagueSelect" onchange="filterTeams()"></select>
@@ -72,15 +72,23 @@
 
     async function init() {
         try {
-            const req = await fetch(DB_URL);
+            // TRUCO ANTI-CACHÉ: Añadimos la hora actual (?t=...) para obligar a descargar datos nuevos
+            const req = await fetch(DB_URL + '?t=' + new Date().getTime());
+            
+            if(!req.ok) throw new Error("Error red");
             db = await req.json();
+            
             const leagues = [...new Set(Object.values(db).map(x => x.liga))].sort();
             const sel = document.getElementById('leagueSelect');
             sel.innerHTML = '<option value="">-- Seleccionar Competición --</option>';
             leagues.forEach(l => sel.add(new Option(l, l)));
-            document.getElementById('status').innerText = "✅ Sistema Conectado";
+            
+            document.getElementById('status').innerText = "✅ Datos Actualizados y Sincronizados";
             document.getElementById('status').style.color = "#10b981";
-        } catch(e) { document.getElementById('status').innerText = "⚠️ Error de conexión"; }
+        } catch(e) { 
+            document.getElementById('status').innerText = "⚠️ Error de conexión (Revisa GitHub Actions)";
+            console.error(e);
+        }
     }
 
     function filterTeams() {
