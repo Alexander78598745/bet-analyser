@@ -3,159 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bet Analyser Pro</title>
+    <title>Bet Analyser AI - Pro</title>
     <style>
-        :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #10b981; --danger: #ef4444; }
+        :root { --bg: #0f172a; --card: #1e293b; --text: #f1f5f9; --accent: #10b981; --secondary: #3b82f6; --danger: #ef4444; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); padding: 20px; display: flex; justify-content: center; }
-        .app { width: 100%; max-width: 600px; background: var(--card); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        h1 { text-align: center; color: var(--accent); margin-bottom: 20px; letter-spacing: 1px; }
-        label { font-size: 14px; color: #cbd5e1; font-weight: bold; margin-top: 10px; display: block; }
-        select, input { width: 100%; padding: 12px; margin: 5px 0 15px 0; background: #334155; border: 1px solid #475569; color: white; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        button { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; font-size: 16px; transition: 0.2s; }
+        .app { width: 100%; max-width: 650px; background: var(--card); padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        h1 { text-align: center; color: var(--accent); margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        select, input { width: 100%; padding: 12px; margin: 5px 0 15px 0; background: #334155; border: 1px solid #475569; color: white; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.2s; }
         button:hover { background: #059669; transform: translateY(-2px); }
         
-        .result-box { background: #0f172a; padding: 20px; margin-top: 25px; border-radius: 10px; display: none; border: 1px solid #334155; }
-        .bar-container { background: #334155; height: 24px; border-radius: 6px; margin: 8px 0; position: relative; overflow: hidden; }
+        .result-section { background: #0f172a; padding: 20px; margin-top: 25px; border-radius: 10px; display: none; border-left: 5px solid var(--accent); }
+        .bar-container { background: #334155; height: 20px; border-radius: 5px; margin: 8px 0; position: relative; overflow: hidden; }
         .bar { height: 100%; background: var(--accent); width: 0%; transition: width 0.8s ease; }
-        .bar-text { position: absolute; right: 10px; top: 3px; font-size: 12px; font-weight: bold; text-shadow: 1px 1px 2px black; }
-        .badge { padding: 15px; text-align: center; border-radius: 8px; margin-top: 20px; font-weight: bold; font-size: 18px; }
+        .bar-text { position: absolute; right: 10px; top: 1px; font-size: 12px; font-weight: bold; }
+        .value-box { padding: 10px; border-radius: 5px; margin-top: 10px; font-weight: bold; text-align: center; font-size: 14px; }
     </style>
 </head>
 <body>
 
 <div class="app">
-    <h1>⚽ Bet Analyser AI</h1>
-    <p id="status" style="text-align:center; font-size:12px; color:#94a3b8;">Conectando con GitHub...</p>
+    <h1>⚽ Bet Analyser AI v2</h1>
+    <p id="status" style="text-align:center; font-size:12px; color:#94a3b8;">Sincronizando con Alexander78598745...</p>
 
-    <label>1. Selecciona Liga</label>
-    <select id="leagueSelect" onchange="filterTeams()"><option>Cargando datos...</option></select>
+    <label>1. Seleccionar Liga</label>
+    <select id="leagueSelect" onchange="filterTeams()"></select>
 
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-        <div><label>Local (Home)</label><select id="homeTeam"></select></div>
-        <div><label>Visitante (Away)</label><select id="awayTeam"></select></div>
+    <div class="grid">
+        <div><label>Equipo Local</label><select id="homeTeam"></select></div>
+        <div><label>Equipo Visitante</label><select id="awayTeam"></select></div>
     </div>
 
-    <label>Cuota Casa de Apuestas (Decimal)</label>
-    <input type="number" id="odds" step="0.01" placeholder="Ej: 2.10">
+    <div class="grid">
+        <div><label>Cuota Local (1)</label><input type="number" id="odd1" step="0.01" placeholder="Ej: 2.10"></div>
+        <div><label>Cuota Más 2.5 Goles</label><input type="number" id="oddOver" step="0.01" placeholder="Ej: 1.95"></div>
+    </div>
 
-    <label>Tu Presupuesto Total ($)</label>
-    <input type="number" id="bankroll" value="1000">
+    <button onclick="calculate()">REALIZAR ANÁLISIS COMPLETO</button>
 
-    <button onclick="calculate()">ANALIZAR PARTIDO</button>
+    <div id="results1" class="result-section">
+        <h3 id="matchTitle" style="text-align:center; margin-top:0;"></h3>
+        <p>Probabilidad de Ganador (1X2)</p>
+        <div class="bar-container"><div id="barL" class="bar"></div><span id="txtL" class="bar-text"></span></div>
+        <div id="value1" class="value-box"></div>
+    </div>
 
-    <div id="results" class="result-box">
-        <h3 id="matchTitle" style="text-align:center; margin:0 0 15px 0; color:white;"></h3>
-        
-        <p>Victoria Local</p><div class="bar-container"><div id="barL" class="bar"></div><span id="txtL" class="bar-text"></span></div>
-        <p>Empate</p><div class="bar-container"><div id="barD" class="bar" style="background:#64748b"></div><span id="txtD" class="bar-text"></span></div>
-        <p>Victoria Visitante</p><div class="bar-container"><div id="barV" class="bar" style="background:#ef4444"></div><span id="txtV" class="bar-text"></span></div>
-
-        <div id="valueBadge" class="badge"></div>
-        <div id="kellyMsg" style="text-align:center; margin-top:15px; font-size:14px; color:#cbd5e1; padding: 10px; background: #1e293b; border-radius: 8px;"></div>
+    <div id="resultsGoles" class="result-section" style="border-left-color: var(--secondary);">
+        <p>Probabilidad de Goles (Más de 2.5)</p>
+        <div class="bar-container"><div id="barOver" class="bar" style="background: var(--secondary);"></div><span id="txtOver" class="bar-text"></span></div>
+        <div id="valueOver" class="value-box"></div>
     </div>
 </div>
 
 <script>
-    // URL personalizada para Alexander78598745
     const DB_URL = 'https://raw.githubusercontent.com/Alexander78598745/bet-analyser/main/equipos.json';
-    
     let db = {};
 
     async function init() {
         try {
             const req = await fetch(DB_URL);
-            if(!req.ok) throw new Error("Datos no encontrados");
             db = await req.json();
-            
             const leagues = [...new Set(Object.values(db).map(x => x.liga))].sort();
             const sel = document.getElementById('leagueSelect');
-            sel.innerHTML = '<option value="">-- Selecciona Liga --</option>';
+            sel.innerHTML = '<option value="">-- Elige Liga --</option>';
             leagues.forEach(l => sel.add(new Option(l, l)));
-            
-            document.getElementById('status').innerText = "✅ Base de datos sincronizada";
-            document.getElementById('status').style.color = "#10b981";
-        } catch(e) {
-            document.getElementById('status').innerText = "⚠️ Ejecuta el 'Action' en GitHub para descargar datos";
-            document.getElementById('status').style.color = "#ef4444";
-        }
+            document.getElementById('status').innerText = "✅ Base de Datos 2025/2026 Lista";
+        } catch(e) { document.getElementById('status').innerText = "❌ Error al cargar datos"; }
     }
 
     function filterTeams() {
         const league = document.getElementById('leagueSelect').value;
-        const h = document.getElementById('homeTeam');
-        const a = document.getElementById('awayTeam');
+        const h = document.getElementById('homeTeam'); const a = document.getElementById('awayTeam');
         h.innerHTML = ''; a.innerHTML = '';
-        
         Object.keys(db).filter(k => db[k].liga === league).sort().forEach(t => {
-            h.add(new Option(t, t));
-            a.add(new Option(t, t));
+            h.add(new Option(t, t)); a.add(new Option(t, t));
         });
     }
 
-    // Matemáticas de Poisson
     function fact(n) { return n<=1?1:n*fact(n-1); }
     function p_dist(k, l) { return (Math.pow(l, k) * Math.exp(-l)) / fact(k); }
 
     function calculate() {
         const hName = document.getElementById('homeTeam').value;
         const vName = document.getElementById('awayTeam').value;
-        const odd = parseFloat(document.getElementById('odds').value);
-        const bank = parseFloat(document.getElementById('bankroll').value);
+        const odd1 = parseFloat(document.getElementById('odd1').value);
+        const oddOver = parseFloat(document.getElementById('oddOver').value);
 
-        if(!hName || !vName) return alert("Selecciona los equipos primero");
+        if(!hName || !vName) return;
 
-        // Ventaja de Campo (10%)
-        const adv = 1.10;
-        const xGH = (db[hName].ga * adv + db[vName].gc) / 2;
-        const xGV = (db[vName].ga / adv + db[hName].gc) / 2;
+        // xG (Goles Esperados)
+        const xGH = (db[hName].ga * 1.10 + db[vName].gc) / 2;
+        const xGV = (db[vName].ga / 1.10 + db[hName].gc) / 2;
 
-        let pL=0, pD=0, pV=0;
+        let pL=0, pD=0, pV=0, pUnder25=0;
+
         for(let i=0; i<8; i++) {
             for(let j=0; j<8; j++) {
                 let p = p_dist(i, xGH) * p_dist(j, xGV);
+                // Probabilidades 1X2
                 if(i>j) pL+=p; else if(i==j) pD+=p; else pV+=p;
+                // Probabilidad Under 2.5 (0-0, 1-0, 0-1, 1-1, 2-0, 0-2)
+                if((i+j) < 2.5) pUnder25 += p;
             }
         }
 
-        document.getElementById('results').style.display = 'block';
+        const pOver25 = 1 - pUnder25;
+
+        // Mostrar Resultados
+        document.getElementById('results1').style.display = 'block';
+        document.getElementById('resultsGoles').style.display = 'block';
         document.getElementById('matchTitle').innerText = `${hName} vs ${vName}`;
-        
-        const setBar = (id, val) => {
-            document.getElementById('bar'+id).style.width = (val*100)+'%';
-            document.getElementById('txt'+id).innerText = (val*100).toFixed(1)+'%';
-        };
-        setBar('L', pL); setBar('D', pD); setBar('V', pV);
 
-        const badge = document.getElementById('valueBadge');
-        const kellyMsg = document.getElementById('kellyMsg');
-        
+        // UI 1X2
+        updateUI('L', pL, odd1, 'value1', 'Victoria Local');
+        // UI Goles
+        updateUI('Over', pOver25, oddOver, 'valueOver', 'Más de 2.5 Goles');
+    }
+
+    function updateUI(id, prob, odd, valueId, label) {
+        const pct = (prob * 100).toFixed(1);
+        document.getElementById('bar' + id).style.width = pct + '%';
+        document.getElementById('txt' + id).innerText = pct + '%';
+
+        const vBox = document.getElementById(valueId);
         if(odd > 0) {
-            let edge = (pL * odd) - 1;
+            let edge = (prob * odd) - 1;
             if(edge > 0) {
-                badge.style.background = 'rgba(16, 185, 129, 0.2)';
-                badge.style.color = '#10b981';
-                badge.innerText = `VALOR DETECTADO: +${(edge*100).toFixed(1)}%`;
-                
-                // Criterio de Kelly (Quarter Kelly = 0.25 para seguridad)
-                let b = odd - 1;
-                let q = 1 - pL;
-                let f = ((b*pL - q) / b) * 0.25; 
-                let money = bank * f;
-                kellyMsg.innerHTML = `💰 GESTIÓN DE BANCA (Kelly):<br>Apuesta recomendada: <b>$${Math.max(0, money).toFixed(2)}</b>`;
+                vBox.style.background = 'rgba(16, 185, 129, 0.2)';
+                vBox.style.color = '#10b981';
+                vBox.innerText = `VALOR DETECTADO EN ${label.toUpperCase()}: +${(edge*100).toFixed(1)}%`;
             } else {
-                badge.style.background = 'rgba(239, 68, 68, 0.2)';
-                badge.style.color = '#ef4444';
-                badge.innerText = 'SIN VALOR MATEMÁTICO';
-                kellyMsg.innerText = 'La casa de apuestas no ofrece ventaja. No apostar.';
+                vBox.style.background = 'rgba(239, 68, 68, 0.1)';
+                vBox.style.color = '#94a3b8';
+                vBox.innerText = `Sin valor para ${label}`;
             }
-        } else {
-            badge.innerText = "";
-            kellyMsg.innerText = "";
-        }
+        } else { vBox.innerText = ""; }
     }
 
     window.onload = init;
 </script>
-
 </body>
 </html>
