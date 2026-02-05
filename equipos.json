@@ -1,482 +1,482 @@
 {
     "Barcelona": {
-        "liga": "La Liga",
-        "ga": 2.68,
-        "gc": 1.03
+        "liga": "Primera Division",
+        "ga": 2.73,
+        "gc": 1.05
     },
-    "Real Madrid": {
-        "liga": "La Liga",
-        "ga": 2.05,
-        "gc": 1.0
+    "Real Madrid CF": {
+        "liga": "Primera Division",
+        "ga": 2.14,
+        "gc": 0.82
     },
-    "Atletico Madrid": {
-        "liga": "La Liga",
-        "ga": 1.79,
-        "gc": 0.79
+    "Club Atl\u00e9tico de Madrid": {
+        "liga": "Primera Division",
+        "ga": 1.73,
+        "gc": 0.77
+    },
+    "Villarreal CF": {
+        "liga": "Primera Division",
+        "ga": 1.86,
+        "gc": 1.1
+    },
+    "Real Betis Balompi\u00e9": {
+        "liga": "Primera Division",
+        "ga": 1.64,
+        "gc": 1.27
+    },
+    "RCD Espanyol de Barcelona": {
+        "liga": "Primera Division",
+        "ga": 1.18,
+        "gc": 1.23
+    },
+    "RC Celta de Vigo": {
+        "liga": "Primera Division",
+        "ga": 1.32,
+        "gc": 1.05
+    },
+    "Real Sociedad de F\u00fatbol": {
+        "liga": "Primera Division",
+        "ga": 1.36,
+        "gc": 1.36
+    },
+    "CA Osasuna": {
+        "liga": "Primera Division",
+        "ga": 1.18,
+        "gc": 1.23
+    },
+    "Deportivo Alav\u00e9s": {
+        "liga": "Primera Division",
+        "ga": 0.91,
+        "gc": 1.23
     },
     "Athletic Club": {
-        "liga": "La Liga",
-        "ga": 1.42,
-        "gc": 0.76
+        "liga": "Primera Division",
+        "ga": 0.95,
+        "gc": 1.41
     },
-    "Villarreal": {
-        "liga": "La Liga",
-        "ga": 1.87,
-        "gc": 1.34
+    "Girona FC": {
+        "liga": "Primera Division",
+        "ga": 0.95,
+        "gc": 1.64
     },
-    "Real Betis": {
-        "liga": "La Liga",
-        "ga": 1.5,
-        "gc": 1.32
-    },
-    "Celta Vigo": {
-        "liga": "La Liga",
-        "ga": 1.55,
-        "gc": 1.5
-    },
-    "Rayo Vallecano": {
-        "liga": "La Liga",
-        "ga": 1.08,
-        "gc": 1.18
-    },
-    "Osasuna": {
-        "liga": "La Liga",
-        "ga": 1.26,
-        "gc": 1.37
-    },
-    "Mallorca": {
-        "liga": "La Liga",
-        "ga": 0.92,
-        "gc": 1.16
-    },
-    "Real Sociedad": {
-        "liga": "La Liga",
-        "ga": 0.92,
-        "gc": 1.21
-    },
-    "Valencia": {
-        "liga": "La Liga",
-        "ga": 1.16,
-        "gc": 1.42
-    },
-    "Getafe": {
-        "liga": "La Liga",
-        "ga": 0.89,
-        "gc": 1.03
-    },
-    "Espanyol": {
-        "liga": "La Liga",
-        "ga": 1.05,
-        "gc": 1.34
-    },
-    "Alaves": {
-        "liga": "La Liga",
-        "ga": 1.0,
-        "gc": 1.26
-    },
-    "Girona": {
-        "liga": "La Liga",
-        "ga": 1.16,
-        "gc": 1.58
-    },
-    "Sevilla": {
-        "liga": "La Liga",
-        "ga": 1.11,
+    "Elche CF": {
+        "liga": "Primera Division",
+        "ga": 1.36,
         "gc": 1.45
     },
-    "Leganes": {
-        "liga": "La Liga",
-        "ga": 1.03,
-        "gc": 1.47
-    },
-    "Las Palmas": {
-        "liga": "La Liga",
-        "ga": 1.05,
-        "gc": 1.61
-    },
-    "Valladolid": {
-        "liga": "La Liga",
-        "ga": 0.68,
-        "gc": 2.37
-    },
-    "Liverpool": {
-        "liga": "Premier League",
-        "ga": 2.26,
-        "gc": 1.08
-    },
-    "Arsenal": {
-        "liga": "Premier League",
-        "ga": 1.82,
-        "gc": 0.89
-    },
-    "Manchester City": {
-        "liga": "Premier League",
-        "ga": 1.89,
-        "gc": 1.16
-    },
-    "Chelsea": {
-        "liga": "Premier League",
-        "ga": 1.68,
-        "gc": 1.13
-    },
-    "Newcastle": {
-        "liga": "Premier League",
-        "ga": 1.79,
-        "gc": 1.24
-    },
-    "Aston Villa": {
-        "liga": "Premier League",
-        "ga": 1.53,
-        "gc": 1.34
-    },
-    "Nottingham Forest": {
-        "liga": "Premier League",
-        "ga": 1.53,
-        "gc": 1.21
-    },
-    "Brighton": {
-        "liga": "Premier League",
-        "ga": 1.74,
+    "RCD Mallorca": {
+        "liga": "Primera Division",
+        "ga": 1.27,
         "gc": 1.55
     },
-    "Bournemouth": {
-        "liga": "Premier League",
-        "ga": 1.53,
-        "gc": 1.21
+    "Sevilla FC": {
+        "liga": "Primera Division",
+        "ga": 1.32,
+        "gc": 1.68
     },
-    "Brentford": {
-        "liga": "Premier League",
-        "ga": 1.74,
-        "gc": 1.5
+    "Valencia CF": {
+        "liga": "Primera Division",
+        "ga": 1.05,
+        "gc": 1.59
     },
-    "Fulham": {
-        "liga": "Premier League",
-        "ga": 1.42,
-        "gc": 1.42
+    "Getafe CF": {
+        "liga": "Primera Division",
+        "ga": 0.73,
+        "gc": 1.23
     },
-    "Crystal Palace": {
-        "liga": "Premier League",
-        "ga": 1.34,
-        "gc": 1.34
+    "Rayo Vallecano de Madrid": {
+        "liga": "Primera Division",
+        "ga": 0.82,
+        "gc": 1.36
     },
-    "Everton": {
-        "liga": "Premier League",
-        "ga": 1.11,
-        "gc": 1.16
+    "Levante UD": {
+        "liga": "Primera Division",
+        "ga": 1.14,
+        "gc": 1.62
     },
-    "West Ham": {
-        "liga": "Premier League",
-        "ga": 1.21,
-        "gc": 1.63
+    "Real Oviedo": {
+        "liga": "Primera Division",
+        "ga": 0.55,
+        "gc": 1.55
     },
-    "Manchester United": {
+    "Arsenal FC": {
         "liga": "Premier League",
-        "ga": 1.16,
-        "gc": 1.42
-    },
-    "Wolves": {
-        "liga": "Premier League",
-        "ga": 1.42,
-        "gc": 1.82
-    },
-    "Tottenham": {
-        "liga": "Premier League",
-        "ga": 1.68,
-        "gc": 1.71
-    },
-    "Leicester": {
-        "liga": "Premier League",
-        "ga": 0.87,
-        "gc": 2.11
-    },
-    "Ipswich": {
-        "liga": "Premier League",
-        "ga": 0.95,
-        "gc": 2.16
-    },
-    "Southampton": {
-        "liga": "Premier League",
-        "ga": 0.68,
-        "gc": 2.26
-    },
-    "Napoli": {
-        "liga": "Serie A",
-        "ga": 1.55,
+        "ga": 1.92,
         "gc": 0.71
     },
-    "Inter": {
-        "liga": "Serie A",
-        "ga": 2.08,
-        "gc": 0.92
+    "Manchester City FC": {
+        "liga": "Premier League",
+        "ga": 2.04,
+        "gc": 0.96
     },
-    "Atalanta": {
-        "liga": "Serie A",
-        "ga": 2.05,
-        "gc": 0.97
-    },
-    "Juventus": {
-        "liga": "Serie A",
-        "ga": 1.53,
-        "gc": 0.92
-    },
-    "AS Roma": {
-        "liga": "Serie A",
-        "ga": 1.47,
-        "gc": 0.92
-    },
-    "Fiorentina": {
-        "liga": "Serie A",
-        "ga": 1.58,
+    "Aston Villa FC": {
+        "liga": "Premier League",
+        "ga": 1.46,
         "gc": 1.08
     },
-    "Lazio": {
+    "Manchester United FC": {
+        "liga": "Premier League",
+        "ga": 1.83,
+        "gc": 1.5
+    },
+    "Chelsea FC": {
+        "liga": "Premier League",
+        "ga": 1.75,
+        "gc": 1.12
+    },
+    "Liverpool FC": {
+        "liga": "Premier League",
+        "ga": 1.62,
+        "gc": 1.38
+    },
+    "Brentford FC": {
+        "liga": "Premier League",
+        "ga": 1.5,
+        "gc": 1.33
+    },
+    "Sunderland AFC": {
+        "liga": "Premier League",
+        "ga": 1.12,
+        "gc": 1.08
+    },
+    "Fulham FC": {
+        "liga": "Premier League",
+        "ga": 1.42,
+        "gc": 1.46
+    },
+    "Everton FC": {
+        "liga": "Premier League",
+        "ga": 1.08,
+        "gc": 1.12
+    },
+    "Newcastle United FC": {
+        "liga": "Premier League",
+        "ga": 1.38,
+        "gc": 1.38
+    },
+    "ABournemouth": {
+        "liga": "Premier League",
+        "ga": 1.67,
+        "gc": 1.79
+    },
+    "Brighton & Hove Albion FC": {
+        "liga": "Premier League",
+        "ga": 1.42,
+        "gc": 1.33
+    },
+    "Tottenham Hotspur FC": {
+        "liga": "Premier League",
+        "ga": 1.46,
+        "gc": 1.38
+    },
+    "Crystal Palace FC": {
+        "liga": "Premier League",
+        "ga": 1.04,
+        "gc": 1.21
+    },
+    "Leeds United FC": {
+        "liga": "Premier League",
+        "ga": 1.29,
+        "gc": 1.75
+    },
+    "Nottingham Forest FC": {
+        "liga": "Premier League",
+        "ga": 1.0,
+        "gc": 1.46
+    },
+    "West Ham United FC": {
+        "liga": "Premier League",
+        "ga": 1.21,
+        "gc": 2.0
+    },
+    "Burnley FC": {
+        "liga": "Premier League",
+        "ga": 1.04,
+        "gc": 1.96
+    },
+    "Wolverhampton Wanderers FC": {
+        "liga": "Premier League",
+        "ga": 0.62,
+        "gc": 1.88
+    },
+    "Internazionale Milano": {
         "liga": "Serie A",
-        "ga": 1.61,
-        "gc": 1.29
+        "ga": 2.26,
+        "gc": 0.83
     },
     "AC Milan": {
         "liga": "Serie A",
+        "ga": 1.65,
+        "gc": 0.74
+    },
+    "SSC Napoli": {
+        "liga": "Serie A",
+        "ga": 1.43,
+        "gc": 0.91
+    },
+    "Juventus FC": {
+        "liga": "Serie A",
+        "ga": 1.7,
+        "gc": 0.78
+    },
+    "AS Roma": {
+        "liga": "Serie A",
+        "ga": 1.17,
+        "gc": 0.61
+    },
+    "Como 1907": {
+        "liga": "Serie A",
         "ga": 1.61,
-        "gc": 1.13
+        "gc": 0.7
     },
-    "Bologna": {
+    "Atalanta BC": {
         "liga": "Serie A",
-        "ga": 1.5,
-        "gc": 1.24
+        "ga": 1.3,
+        "gc": 0.87
     },
-    "Como": {
+    "SS Lazio": {
         "liga": "Serie A",
-        "ga": 1.29,
-        "gc": 1.37
+        "ga": 1.04,
+        "gc": 0.91
     },
-    "Torino": {
+    "Udinese Calcio": {
         "liga": "Serie A",
-        "ga": 1.03,
-        "gc": 1.18
+        "ga": 1.13,
+        "gc": 1.48
     },
-    "Udinese": {
+    "Bologna 1909": {
         "liga": "Serie A",
-        "ga": 1.08,
-        "gc": 1.47
+        "ga": 1.39,
+        "gc": 1.3
     },
-    "Genoa": {
+    "US Sassuolo Calcio": {
         "liga": "Serie A",
-        "ga": 0.97,
-        "gc": 1.29
+        "ga": 1.17,
+        "gc": 1.26
     },
-    "Verona": {
+    "Cagliari Calcio": {
         "liga": "Serie A",
-        "ga": 0.89,
+        "ga": 1.22,
+        "gc": 1.35
+    },
+    "Torino FC": {
+        "liga": "Serie A",
+        "ga": 0.96,
         "gc": 1.74
     },
-    "Cagliari": {
+    "Genoa CFC": {
         "liga": "Serie A",
-        "ga": 1.05,
-        "gc": 1.47
+        "ga": 1.17,
+        "gc": 1.48
     },
-    "Parma": {
-        "liga": "Serie A",
-        "ga": 1.16,
-        "gc": 1.53
-    },
-    "Lecce": {
-        "liga": "Serie A",
-        "ga": 0.71,
-        "gc": 1.53
-    },
-    "Empoli": {
+    "US Cremonese": {
         "liga": "Serie A",
         "ga": 0.87,
-        "gc": 1.55
+        "gc": 1.35
     },
-    "Venezia": {
+    "Parma Calcio 1913": {
         "liga": "Serie A",
-        "ga": 0.84,
-        "gc": 1.47
+        "ga": 0.65,
+        "gc": 1.3
     },
-    "Monza": {
+    "US Lecce": {
         "liga": "Serie A",
-        "ga": 0.74,
-        "gc": 1.82
+        "ga": 0.57,
+        "gc": 1.3
+    },
+    "ACF Fiorentina": {
+        "liga": "Serie A",
+        "ga": 1.09,
+        "gc": 1.57
+    },
+    "AC Pisa 1909": {
+        "liga": "Serie A",
+        "ga": 0.83,
+        "gc": 1.74
+    },
+    "Hellas Verona FC": {
+        "liga": "Serie A",
+        "ga": 0.78,
+        "gc": 1.78
     },
     "Bayern M\u00fcnchen": {
         "liga": "Bundesliga",
-        "ga": 2.91,
-        "gc": 0.94
+        "ga": 3.7,
+        "gc": 0.9
     },
-    "Bayer Leverkusen": {
+    "Borussia Dortmund": {
         "liga": "Bundesliga",
-        "ga": 2.12,
-        "gc": 1.26
+        "ga": 2.05,
+        "gc": 0.95
+    },
+    "TSG 1899 Hoffenheim": {
+        "liga": "Bundesliga",
+        "ga": 2.15,
+        "gc": 1.15
+    },
+    "VfB Stuttgart": {
+        "liga": "Bundesliga",
+        "ga": 1.85,
+        "gc": 1.3
+    },
+    "RB Leipzig": {
+        "liga": "Bundesliga",
+        "ga": 1.9,
+        "gc": 1.35
+    },
+    "Bayer 04 Leverkusen": {
+        "liga": "Bundesliga",
+        "ga": 2.0,
+        "gc": 1.37
+    },
+    "SC Freiburg": {
+        "liga": "Bundesliga",
+        "ga": 1.55,
+        "gc": 1.65
     },
     "Eintracht Frankfurt": {
         "liga": "Bundesliga",
         "ga": 2.0,
-        "gc": 1.35
+        "gc": 2.25
     },
-    "Borussia Dortmund": {
+    "1. Union Berlin": {
         "liga": "Bundesliga",
-        "ga": 2.09,
-        "gc": 1.5
+        "ga": 1.25,
+        "gc": 1.65
     },
-    "SC Freiburg": {
+    "1. K\u00f6ln": {
         "liga": "Bundesliga",
-        "ga": 1.44,
-        "gc": 1.56
+        "ga": 1.45,
+        "gc": 1.6
     },
-    "FSV Mainz 05": {
+    "Augsburg": {
         "liga": "Bundesliga",
-        "ga": 1.62,
-        "gc": 1.26
-    },
-    "RB Leipzig": {
-        "liga": "Bundesliga",
-        "ga": 1.56,
-        "gc": 1.41
-    },
-    "Werder Bremen": {
-        "liga": "Bundesliga",
-        "ga": 1.59,
-        "gc": 1.68
-    },
-    "VfB Stuttgart": {
-        "liga": "Bundesliga",
-        "ga": 1.88,
-        "gc": 1.56
+        "ga": 1.2,
+        "gc": 1.85
     },
     "Borussia M\u00f6nchengladbach": {
         "liga": "Bundesliga",
-        "ga": 1.62,
-        "gc": 1.68
+        "ga": 1.2,
+        "gc": 1.65
+    },
+    "Hamburger SV": {
+        "liga": "Bundesliga",
+        "ga": 1.0,
+        "gc": 1.53
     },
     "VfL Wolfsburg": {
         "liga": "Bundesliga",
-        "ga": 1.65,
-        "gc": 1.59
+        "ga": 1.4,
+        "gc": 2.1
     },
-    "FC Augsburg": {
+    "SV Werder Bremen": {
         "liga": "Bundesliga",
-        "ga": 1.03,
-        "gc": 1.5
+        "ga": 1.1,
+        "gc": 1.9
     },
-    "Union Berlin": {
+    "1. FSV Mainz 05": {
         "liga": "Bundesliga",
-        "ga": 1.03,
-        "gc": 1.5
+        "ga": 1.15,
+        "gc": 1.65
     },
-    "FC St. Pauli": {
+    "St. Pauli 1910": {
         "liga": "Bundesliga",
-        "ga": 0.82,
-        "gc": 1.21
+        "ga": 0.9,
+        "gc": 1.7
     },
-    "1899 Hoffenheim": {
+    "1. Heidenheim 1846": {
         "liga": "Bundesliga",
-        "ga": 1.35,
-        "gc": 2.0
+        "ga": 0.95,
+        "gc": 2.25
     },
-    "1. FC Heidenheim": {
-        "liga": "Bundesliga",
-        "ga": 1.09,
-        "gc": 1.88
-    },
-    "Holstein Kiel": {
-        "liga": "Bundesliga",
-        "ga": 1.44,
-        "gc": 2.35
-    },
-    "VfL Bochum": {
-        "liga": "Bundesliga",
-        "ga": 0.97,
-        "gc": 1.97
-    },
-    "Paris Saint Germain": {
+    "Paris Saint-Germain FC": {
         "liga": "Ligue 1",
-        "ga": 2.71,
-        "gc": 1.03
+        "ga": 2.15,
+        "gc": 0.8
     },
-    "Marseille": {
+    "Racing Club de Lens": {
         "liga": "Ligue 1",
-        "ga": 2.18,
-        "gc": 1.38
+        "ga": 1.7,
+        "gc": 0.8
     },
-    "Monaco": {
+    "Olympique de Marseille": {
         "liga": "Ligue 1",
-        "ga": 1.85,
-        "gc": 1.21
+        "ga": 2.3,
+        "gc": 1.1
     },
-    "Nice": {
-        "liga": "Ligue 1",
-        "ga": 1.94,
-        "gc": 1.21
-    },
-    "Lille": {
-        "liga": "Ligue 1",
-        "ga": 1.53,
-        "gc": 1.06
-    },
-    "Lyon": {
-        "liga": "Ligue 1",
-        "ga": 1.91,
-        "gc": 1.35
-    },
-    "Strasbourg": {
+    "Olympique Lyonnais": {
         "liga": "Ligue 1",
         "ga": 1.65,
-        "gc": 1.29
+        "gc": 1.0
     },
-    "Lens": {
+    "Lille OSC": {
         "liga": "Ligue 1",
-        "ga": 1.24,
+        "ga": 1.7,
+        "gc": 1.5
+    },
+    "Stade Rennais 1901": {
+        "liga": "Ligue 1",
+        "ga": 1.5,
+        "gc": 1.55
+    },
+    "RC Strasbourg Alsace": {
+        "liga": "Ligue 1",
+        "ga": 1.65,
+        "gc": 1.25
+    },
+    "Toulouse FC": {
+        "liga": "Ligue 1",
+        "ga": 1.55,
         "gc": 1.15
+    },
+    "Lorient": {
+        "liga": "Ligue 1",
+        "ga": 1.35,
+        "gc": 1.55
+    },
+    "AS Monaco FC": {
+        "liga": "Ligue 1",
+        "ga": 1.6,
+        "gc": 1.65
+    },
+    "Angers SCO": {
+        "liga": "Ligue 1",
+        "ga": 1.05,
+        "gc": 1.25
     },
     "Stade Brestois 29": {
         "liga": "Ligue 1",
-        "ga": 1.53,
-        "gc": 1.74
+        "ga": 1.3,
+        "gc": 1.65
     },
-    "Toulouse": {
+    "OGC Nice": {
         "liga": "Ligue 1",
-        "ga": 1.29,
-        "gc": 1.26
+        "ga": 1.35,
+        "gc": 1.9
     },
-    "Auxerre": {
+    "Paris FC": {
         "liga": "Ligue 1",
-        "ga": 1.41,
-        "gc": 1.5
+        "ga": 1.3,
+        "gc": 1.7
     },
-    "Rennes": {
+    "Le Havre AC": {
         "liga": "Ligue 1",
-        "ga": 1.5,
-        "gc": 1.47
+        "ga": 0.8,
+        "gc": 1.25
     },
     "Nantes": {
         "liga": "Ligue 1",
-        "ga": 1.15,
-        "gc": 1.53
+        "ga": 0.95,
+        "gc": 1.8
     },
-    "Angers": {
+    "AJ Auxerre": {
         "liga": "Ligue 1",
-        "ga": 0.94,
-        "gc": 1.56
+        "ga": 0.7,
+        "gc": 1.45
     },
-    "Le Havre": {
+    "Metz": {
         "liga": "Ligue 1",
-        "ga": 1.18,
-        "gc": 2.09
-    },
-    "Reims": {
-        "liga": "Ligue 1",
-        "ga": 0.97,
-        "gc": 1.38
-    },
-    "Saint Etienne": {
-        "liga": "Ligue 1",
-        "ga": 1.15,
-        "gc": 2.26
-    },
-    "Montpellier": {
-        "liga": "Ligue 1",
-        "ga": 0.68,
-        "gc": 2.32
+        "ga": 1.05,
+        "gc": 2.3
     }
 }
