@@ -116,13 +116,13 @@
     },
     "Manchester United FC": {
         "liga": "Premier League",
-        "ga": 1.84,
-        "gc": 1.44
+        "ga": 1.81,
+        "gc": 1.42
     },
     "Chelsea FC": {
         "liga": "Premier League",
-        "ga": 1.8,
-        "gc": 1.12
+        "ga": 1.81,
+        "gc": 1.15
     },
     "Liverpool FC": {
         "liga": "Premier League",
@@ -137,7 +137,17 @@
     "Everton FC": {
         "liga": "Premier League",
         "ga": 1.12,
-        "gc": 1.12
+        "gc": 1.15
+    },
+    "ABournemouth": {
+        "liga": "Premier League",
+        "ga": 1.65,
+        "gc": 1.73
+    },
+    "Newcastle United FC": {
+        "liga": "Premier League",
+        "ga": 1.42,
+        "gc": 1.42
     },
     "Sunderland AFC": {
         "liga": "Premier League",
@@ -149,16 +159,6 @@
         "ga": 1.4,
         "gc": 1.48
     },
-    "ABournemouth": {
-        "liga": "Premier League",
-        "ga": 1.64,
-        "gc": 1.76
-    },
-    "Newcastle United FC": {
-        "liga": "Premier League",
-        "ga": 1.4,
-        "gc": 1.44
-    },
     "Crystal Palace FC": {
         "liga": "Premier League",
         "ga": 1.04,
@@ -169,15 +169,15 @@
         "ga": 1.36,
         "gc": 1.32
     },
-    "Tottenham Hotspur FC": {
-        "liga": "Premier League",
-        "ga": 1.4,
-        "gc": 1.4
-    },
     "Leeds United FC": {
         "liga": "Premier League",
-        "ga": 1.36,
-        "gc": 1.72
+        "ga": 1.38,
+        "gc": 1.73
+    },
+    "Tottenham Hotspur FC": {
+        "liga": "Premier League",
+        "ga": 1.38,
+        "gc": 1.42
     },
     "Nottingham Forest FC": {
         "liga": "Premier League",
@@ -186,8 +186,8 @@
     },
     "West Ham United FC": {
         "liga": "Premier League",
-        "ga": 1.24,
-        "gc": 1.92
+        "ga": 1.23,
+        "gc": 1.88
     },
     "Burnley FC": {
         "liga": "Premier League",
